@@ -79,7 +79,6 @@ export class TelegramService {
 			      // User provided the state, complete the conversation
 			      const matchingLocations = await this.findLocationsForCity(conversationState[chatId].city, chatId);	
 			      const filteredlocation = matchingLocations.find(location => location.state === text);
-			      console.log(filteredlocation)
 			      if (!filteredlocation) {
 			      	  console.log(`No matching location found for state: ${text}`);
 					} 
@@ -87,7 +86,6 @@ export class TelegramService {
 				  const location = filteredlocation.name;
 				  const lat = filteredlocation.lat;
 				  const lon = filteredlocation.lon;
-				  console.log(`Latitude: ${typeof(lat)}, Longitude: ${typeof(lon)}`);	
 			      this.bot.sendMessage(chatId, `Thank you! You entered:\nCity: ${conversationState[chatId].city}\nState: ${conversationState[chatId].state}`);
 		  		  await this.saveUserData(chatId, first_name, last_name, location, lat, lon, is_block)
 

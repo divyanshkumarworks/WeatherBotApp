@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TelegramModule } from './telegram/telegram.module';
-import { InputModule } from './input/input.module';
 import { UserManagementModule } from './user_management/user_management.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MessageCronModule } from './message_cron/message_cron.module';
@@ -15,7 +14,6 @@ import { JwtService } from '@nestjs/jwt';
 @Module({
   imports: [
     TelegramModule, 
-    InputModule, 
     PassportModule.register({ session: true }),
     UserManagementModule,
     MongooseModule.forRoot('mongodb+srv://johnybravo2404:%40bcd1234@cluster0.ikxf9ss.mongodb.net/nestjs-demo?retryWrites=true&w=majority'),
