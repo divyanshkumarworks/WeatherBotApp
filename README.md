@@ -5,8 +5,16 @@ This project is an implementation of a Telegram bot that allows users to subscri
 ### Demo
 Link Telegram Bot Handle: [https://web.telegram.org/k/#@Johny2404_bot](https://web.telegram.org/k/#@Johny2404_bot)
 
+## Preview
+
+📌 Telegram Bot Page
+
 ![Screenshot 2023-10-13 033629](https://github.com/divyanshkumarworks/WeatherBotApp/assets/134360630/f5614945-a858-4ae8-8c7e-fd456ca27bdb)
 
+📌 User Management Page
+
+
+![Screenshot 2023-10-13 034336](https://github.com/divyanshkumarworks/WeatherBotApp/assets/134360630/8013c073-216b-493d-8d40-fc3d64cd5422)
 
 **Note:** Bot is set to give daily updates in the morning at 8 A.M. . Change it according to your needs 
 
