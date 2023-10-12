@@ -2,6 +2,11 @@
 
 This project is an implementation of a Telegram bot that allows users to subscribe to daily weather updates and an admin panel for managing bot settings and user accounts. The stack includes NestJS, ReactJS, and Node.js.
 
+### Demo
+Link Telegram Bot Handle: [https://web.telegram.org/k/#@Johny2404_bot](https://web.telegram.org/k/#@Johny2404_bot)
+
+**Note:** Bot is set to give daily updates in the morning at 8 A.M. . Change it according to your needs 
+
 ## Features
 **Weather Subscription**
 
