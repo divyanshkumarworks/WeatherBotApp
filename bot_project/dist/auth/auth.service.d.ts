@@ -1,6 +1,12 @@
+import { JwtService } from '@nestjs/jwt';
 export declare class AuthService {
-    googleLogin(req: any): "No user from google" | {
-        message: string;
-        user: any;
-    };
+    private jwtService;
+    constructor(jwtService: JwtService);
+    validateUser(username: string, password: string): Promise<{
+        username: string;
+        password: string;
+    }>;
+    login(user: any): Promise<{
+        access_token: Promise<string>;
+    }>;
 }

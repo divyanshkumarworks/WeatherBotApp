@@ -1,15 +1,27 @@
 import { Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
-	googleLogin(req) {
-    if (!req.user) {
-      return 'No user from google'
-    }
+  constructor(
+    private jwtService: JwtService,
+  ) {}
 
-    return {
-      message: 'User information from google',
-      user: req.user
+  async validateUser(username: string, password: string) {
+
+    const hardcodedUsername = 'testuser';
+    const hardcodedPassword = 'testpassword';
+
+    if (username === hardcodedUsername && password === hardcodedPassword) {
+      return { username: hardcodedUsername, password: hardcodedPassword };
     }
+    return null;
+  }
+
+  async login(user: any) {
+    const payload = { username: user.username, password: user.password  };
+    return {
+      access_token: this.jwtService.signAsync(payload),
+    };
   }
 }

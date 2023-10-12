@@ -7,4 +7,5 @@ export declare class UserManagementService {
     findOne(id: string): Promise<User[]>;
     deleteUser(id: string): Promise<User | null>;
     saveUser(user_id: string, first_name: string, last_name: string, location: string, latitude: string, longitude: string, is_block: boolean): Promise<User>;
+    toggleBlock(id: string): Promise<User>;
 }

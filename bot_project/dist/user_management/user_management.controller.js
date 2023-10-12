@@ -25,6 +25,9 @@ let UserManagementController = class UserManagementController {
     async deleteUser(id) {
         await this.userManagementService.deleteUser(id.toString());
     }
+    async toggleBlock(id) {
+        return this.userManagementService.toggleBlock(id);
+    }
 };
 exports.UserManagementController = UserManagementController;
 __decorate([
@@ -40,6 +43,13 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], UserManagementController.prototype, "deleteUser", null);
+__decorate([
+    (0, common_1.Patch)(':id/toggleBlock'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UserManagementController.prototype, "toggleBlock", null);
 exports.UserManagementController = UserManagementController = __decorate([
     (0, common_1.Controller)('user'),
     __metadata("design:paramtypes", [user_management_service_1.UserManagementService])

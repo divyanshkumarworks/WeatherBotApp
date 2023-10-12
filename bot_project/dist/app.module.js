@@ -15,12 +15,11 @@ const input_module_1 = require("./input/input.module");
 const user_management_module_1 = require("./user_management/user_management.module");
 const mongoose_1 = require("@nestjs/mongoose");
 const message_cron_module_1 = require("./message_cron/message_cron.module");
-const auth_utils_module_1 = require("./auth-utils/auth-utils.module");
 const auth_module_1 = require("./auth/auth.module");
 const auth_controller_1 = require("./auth/auth.controller");
 const auth_service_1 = require("./auth/auth.service");
-const session_serializer_1 = require("./auth-utils/session.serializer");
 const passport_1 = require("@nestjs/passport");
+const jwt_1 = require("@nestjs/jwt");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -33,11 +32,10 @@ exports.AppModule = AppModule = __decorate([
             user_management_module_1.UserManagementModule,
             mongoose_1.MongooseModule.forRoot('mongodb+srv://johnybravo2404:%40bcd1234@cluster0.ikxf9ss.mongodb.net/nestjs-demo?retryWrites=true&w=majority'),
             message_cron_module_1.MessageCronModule,
-            auth_utils_module_1.AuthUtilsModule,
             auth_module_1.AuthModule,
         ],
         controllers: [app_controller_1.AppController, auth_controller_1.AuthController],
-        providers: [auth_service_1.AuthService, app_service_1.AppService, session_serializer_1.SessionSerializer],
+        providers: [jwt_1.JwtService, auth_service_1.AuthService, app_service_1.AppService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

@@ -16,13 +16,10 @@ export class MessageCronService {
 
   @Cron(CronExpression.EVERY_MINUTE)
   async sendMessagesToUsers() {
-    // Fetching all users from the database
     const users = await this.userManagementService.findAll();
     console.log('cron started')
 
-    // Iterating through the users
     for (const user of users) {
-      // Calculating the user's local time based on their location's timezone
       
       if (user.is_block === true) {
       	continue
@@ -40,9 +37,7 @@ export class MessageCronService {
 	    .format('HH:mm:ss');
 
 
-      // Checking if it's 8 A.M. in the user's timezone
-  	  if (localTime === '14:07:01') {
-        // Sending a message to all the user with matched timezone
+  	  if (localTime === '08:01:00') {
     	await this.sendMessageToUser(user);
 	  }
 

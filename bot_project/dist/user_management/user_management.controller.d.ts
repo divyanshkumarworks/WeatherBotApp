@@ -5,4 +5,5 @@ export declare class UserManagementController {
     constructor(userManagementService: UserManagementService);
     getAllUsers(): Promise<User[]>;
     deleteUser(id: number): Promise<void>;
+    toggleBlock(id: string): Promise<User>;
 }

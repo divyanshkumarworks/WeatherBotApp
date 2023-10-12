@@ -6,12 +6,11 @@ import { InputModule } from './input/input.module';
 import { UserManagementModule } from './user_management/user_management.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MessageCronModule } from './message_cron/message_cron.module';
-import { AuthUtilsModule } from './auth-utils/auth-utils.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthController } from './auth/auth.controller'
 import { AuthService } from './auth/auth.service'
-import { SessionSerializer } from './auth-utils/session.serializer';
 import { PassportModule } from '@nestjs/passport';
+import { JwtService } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -21,10 +20,9 @@ import { PassportModule } from '@nestjs/passport';
     UserManagementModule,
     MongooseModule.forRoot('mongodb+srv://johnybravo2404:%40bcd1234@cluster0.ikxf9ss.mongodb.net/nestjs-demo?retryWrites=true&w=majority'),
     MessageCronModule,
-    AuthUtilsModule,
     AuthModule,
   ],
   controllers: [AppController, AuthController],
-  providers: [AuthService, AppService, SessionSerializer],
+  providers: [JwtService, AuthService, AppService],
 })
 export class AppModule {}

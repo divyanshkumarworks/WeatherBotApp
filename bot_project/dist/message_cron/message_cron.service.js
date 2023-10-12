@@ -37,7 +37,7 @@ let MessageCronService = class MessageCronService {
             const localTime = moment()
                 .tz(local_timezone)
                 .format('HH:mm:ss');
-            if (localTime === '14:07:01') {
+            if (localTime === '08:01:00') {
                 await this.sendMessageToUser(user);
             }
             console.log('cron ended');

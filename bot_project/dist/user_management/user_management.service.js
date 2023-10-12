@@ -44,6 +44,14 @@ let UserManagementService = class UserManagementService {
         });
         return await user.save();
     }
+    async toggleBlock(id) {
+        const user = await this.userModel.findById(id);
+        if (!user) {
+            throw new common_1.NotFoundException('User not found');
+        }
+        user.is_block = !user.is_block;
+        return user.save();
+    }
 };
 exports.UserManagementService = UserManagementService;
 exports.UserManagementService = UserManagementService = __decorate([

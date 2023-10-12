@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Delete, Param } from '@nestjs/common';
+import { Body, Controller, Get, Delete, Param, Patch, UseGuards } from '@nestjs/common';
 import { UserManagementService } from './user_management.service'
 
 import { CreateUserDto } from './dto/create-user.dto'
@@ -20,6 +20,10 @@ export class UserManagementController {
 	  }
 
 
+  	@Patch(':id/toggleBlock')
+	  async toggleBlock(@Param('id') id: string): Promise<User> {
+	    return this.userManagementService.toggleBlock(id);
+	  }
 	// @Post()
 	// async createUser(
 	// 	@Body()

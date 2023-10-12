@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable,  NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { User } from './schemas/user.schema';
@@ -48,4 +48,14 @@ export class UserManagementService {
 	    });
 	    return await user.save();
 	  }
+
+  	async toggleBlock(id: string): Promise<User> {
+	    const user = await this.userModel.findById(id);
+	    if (!user) {
+	      throw new NotFoundException('User not found');
+	    }
+
+	    user.is_block = !user.is_block;
+	    return user.save();
+    }
 }
